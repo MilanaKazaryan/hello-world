@@ -28,8 +28,6 @@ class Users(UserMixin, db.Model):
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(120))
-    images = db.Column(db.String(300))
-    data = db.Column(db.LargeBinary)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 @app.route('/')
