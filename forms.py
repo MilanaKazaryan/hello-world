@@ -17,3 +17,6 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Log In')
 
+class PostsForm(FlaskForm):
+    text = StringField('Add a Post', validators=[DataRequired(), Length(max=120)])
+    submit = SubmitField('Post')
