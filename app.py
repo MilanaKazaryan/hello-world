@@ -7,7 +7,7 @@ from flask_login import UserMixin, LoginManager, login_user, current_user, logou
 app = Flask(__name__) 
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secretkeyformypage'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite3:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'log_in'
@@ -17,8 +17,6 @@ login_manager.login_message_category = 'info'
 @login_manager.user_loader
 def load_user(user_id):
     return Users.query.get(int(user_id))
-
-
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50))
