@@ -7,7 +7,7 @@ from flask_login import UserMixin, LoginManager, login_user, current_user, logou
 app = Flask(__name__) 
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secretkeyformypage'
-app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite3:///users.db'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'log_in'
