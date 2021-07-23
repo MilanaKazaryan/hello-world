@@ -6,7 +6,8 @@ from flask_login import UserMixin, LoginManager, login_user, current_user, logou
 
 app = Flask(__name__) 
 db = SQLAlchemy(app)
-
+app.config['SECRET_KEY'] = 'secretkeyformypage'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.db'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'log_in'
@@ -32,8 +33,8 @@ class Posts(db.Model):
     images = db.Column(db.String(300))
     data = db.Column(db.LargeBinary)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+exit()
 
-app.config['SECRET_KEY'] = 'secretkeyformypage'
 @app.route('/')
 @app.route('/home')
 def home():
