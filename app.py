@@ -55,8 +55,6 @@ def log_in():
 
 @app.route('/register', methods=['GET','POST'])
 def sign_up():
-    if current_user.is_authenticated:
-        return redirect(url_for('post'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
