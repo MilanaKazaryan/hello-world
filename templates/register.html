@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+{% block title%}
+   Sign Up
+{% endblock %}
+{% block content %}
+<br>
+    <div class="container" >
+        <form method="POST" action="">
+            <fieldset class="form-group">
+                <br>
+                <legend align="center">Sign Up!</legend>
+                <br>
+                <div >
+                    {{ form.username(placeholder=" Username") }}
+                    {% if error in form.username.errors %}
+                         <div >
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+                <br>
+                <div >
+                    {{ form.email(placeholder=" Email") }}
+
+                    {% if form.email.errors %}
+  <div >
+                            {% for error in form.email.errors %}
+                                <span style="color:red">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+                <br>
+              <div >
+                            {{ form.password(placeholder=" Password") }}
+
+                    {% if form.password.errors %}
+                        <div >
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+                <br>
+                <div >
+                    {{ form.confirm_password(placeholder="Confirm Password") }}
+                    {% if form.confirm_password.errors %}
+
+                        <div >
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <br>
+            <div >
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+        </form>
+
+<hr style="width:50%;margin-right:auto;margin-left:auto">
+        <form>
+        <small>
+        <small> Have An Account? <input type="submit" value="Sign In" formaction="{{url_for('log_in')}}" class="btn btn-primary"></small>
+        </small>
+
+        </form>
+        <br>
+    </div>
+{% endblock  %}
