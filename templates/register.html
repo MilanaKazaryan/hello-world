@@ -6,6 +6,15 @@
 <br>
     <div class="container" >
         <form method="POST" action="">
+            {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                  <ul class="flashes">
+                        {% for message in messages %}
+                             <div class="message_flash" align="center">{{ message }}</div>
+                         </ul>
+                        {% endfor %}
+                      {% endif %}
+                {% endwith %}
             <fieldset class="form-group">
                 <br>
                 <legend align="center">Sign Up!</legend>

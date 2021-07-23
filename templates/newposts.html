@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block title%}
+New Posts
+{% endblock %}
+{% block paragraph %}
+<div class="container" align="center">
+<h1 align="center"><b> Welcome, {{name}}!</b></h1>
+<hr style="width:50%;margin-right:auto;margin-left:auto">
+  <form method="POST" enctype=multipart/form-data  action="">
+        {{ post.hidden_tag() }}
+    <h2 align="center" ><b> New  Post !</b></h2>
+     {{ post.text(placeholder=" New Post", class="form-control form-control-lg") }}
+      {% if post.text.errors %}
+    <div >
+        {% for error in post.text.errors %}
+             <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <br>
+      <br>
+     {{ post.submit(class="btn btn-success") }}
+</form>   <br>
+</div>
+{% endblock %}

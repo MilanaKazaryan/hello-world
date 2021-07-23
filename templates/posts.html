@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block title%}
+Posts{% endblock %}
+{% block paragraph%}
+<div class="content-section" align="center" >
+
+    <h2>{{current_user.username}}, your posts!</h2><br>
+    <div class="container">
+        {% for post in posts%}
+
+            {%if post.author== current_user %}
+        <hr>
+              <h3 class="article-content">{{ post.text }}</h3>
+        {{post.images}}
+
+        <hr>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <br>
+</div>
+{% endblock %}
