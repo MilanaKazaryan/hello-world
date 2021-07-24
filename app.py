@@ -6,7 +6,8 @@ from flask_login import UserMixin, LoginManager, login_user, current_user, logou
 
 app = Flask(__name__) 
 app.config['SECRET_KEY'] = 'secretkeyformypage'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dlngyjtkrrwfou:e961be084250b557dd63002d7ef906dd9c6f97f9a3f1aaf2fb390671c7a593c0@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/dd6ddfjpfule5l'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
